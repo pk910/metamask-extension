@@ -1968,9 +1968,11 @@
         "addEventListener": true,
         "browser": true,
         "clearInterval": true,
+        "console.warn": true,
+        "fetch": true,
         "open": true,
-        "rlp.encode": true,
-        "setInterval": true
+        "setInterval": true,
+        "txData.type": true
       },
       "packages": {
         "@ethereumjs/common": true,
@@ -1981,6 +1983,7 @@
         "ethereumjs-util": true,
         "events": true,
         "gridplus-sdk": true,
+        "rlp": true,
         "secp256k1": true
       }
     },
@@ -2339,7 +2342,6 @@
     },
     "gridplus-sdk": {
       "globals": {
-        "console.error": true,
         "console.warn": true,
         "setTimeout": true
       },
