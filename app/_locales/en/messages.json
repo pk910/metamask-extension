@@ -157,6 +157,9 @@
   "addMemo": {
     "message": "Add memo"
   },
+  "addMoreNetworks": {
+    "message": "add more networks manually"
+  },
   "addNetwork": {
     "message": "Add Network"
   },
@@ -1935,6 +1938,9 @@
   "network": {
     "message": "Network:"
   },
+  "networkAddedSuccessfully": {
+    "message": "Network added successfully"
+  },
   "networkDetails": {
     "message": "Network Details"
   },
@@ -2330,6 +2336,9 @@
   },
   "padlock": {
     "message": "Padlock"
+  },
+  "orYouCan": {
+    "message": "Or you can"
   },
   "parameters": {
     "message": "Parameters"
@@ -3500,6 +3509,10 @@
   "switchNetworks": {
     "message": "Switch Networks"
   },
+  "switchToNetwork": {
+    "message": "Switch to $1",
+    "description": "$1 represents the custom network that has previously been added"
+  },
   "switchToThisAccount": {
     "message": "Switch to this account"
   },
@@ -3939,6 +3952,9 @@
   "warning": {
     "message": "Warning"
   },
+  "wantToAddThisNetwork": {
+    "message": "Want to add this network?"
+  },
   "weak": {
     "message": "Weak"
   },
@@ -3997,6 +4013,9 @@
   },
   "yesLetsTry": {
     "message": "Yes, let's try"
+  },
+  "youHaveAddedAll": {
+    "message": "You've added all the popular networks. You can discover more networks"
   },
   "youNeedToAllowCameraAccess": {
     "message": "You need to allow camera access to use this feature."
