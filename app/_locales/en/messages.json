@@ -1200,9 +1200,6 @@
   "failedToFetchTickerSymbolData": {
     "message": "Ticker symbol verification data is currently unavailable, make sure that the symbol you have entered is correct. It will impact the conversion rates that you see for this network"
   },
-  "failedToLoadMessage": {
-    "message": "The MetaMask app failed to load: please open and close MetaMask again to restart."
-  },
   "failureMessage": {
     "message": "Something went wrong, and we were unable to complete the action"
   },
