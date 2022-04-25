@@ -11,61 +11,23 @@ import Eth from 'ethjs';
 import EthQuery from 'eth-query';
 import StreamProvider from 'web3-stream-provider';
 import log from 'loglevel';
-import launchMetaMaskUi, { setupLocale } from '../../ui';
+import launchMetaMaskUi from '../../ui';
 import {
   ENVIRONMENT_TYPE_FULLSCREEN,
   ENVIRONMENT_TYPE_POPUP,
 } from '../../shared/constants/app';
 import { SUPPORT_LINK } from '../../ui/helpers/constants/common';
+import { getErrorHtml } from '../../shared/modules/error-utils';
 import ExtensionPlatform from './platforms/extension';
 import { setupMultiplex } from './lib/stream-utils';
 import { getEnvironmentType } from './lib/util';
 import metaRPCClientFactory from './lib/metaRPCClientFactory';
-import getFirstPreferredLangCode from './lib/get-first-preferred-lang-code';
 
 start().catch(log.error);
 
 async function start() {
-  const preferredLocale = await getFirstPreferredLangCode();
-
-  const { currentLocaleMessages, enLocaleMessages } = await setupLocale(
-    preferredLocale,
-  );
-
   function displayCriticalError(container, err) {
-    const t = (key) => {
-      let message;
-      try {
-        message = currentLocaleMessages[key].message;
-      } finally {
-        if (!message) {
-          message = enLocaleMessages[key].message;
-        }
-      }
-
-      return message;
-    };
-
-    const html = `
-    <div class="critical-error-container">
-      <div class="critical-error-div">
-        ${t('troubleStarting')}        
-      </div>
-      <blockquote class="critical-error-bq">
-        ${err.stack}
-      </blockquote>
-      <p class="critical-error-paragraph">    
-        ${t('stillGettingMessage')}
-        <a           
-          href=${SUPPORT_LINK} 
-          class="critical-error-anchor" 
-          target="_blank" 
-          rel="noopener noreferrer">
-            ${t('sendBugReport')}
-          </a>  
-      </p>
-    </div>
-    `;
+    const html = getErrorHtml(err, SUPPORT_LINK);
 
     container.innerHTML = html;
 
