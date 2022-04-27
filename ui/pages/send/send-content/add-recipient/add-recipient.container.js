@@ -4,6 +4,7 @@ import {
   getAddressBookEntry,
   getMetaMaskAccountsOrdered,
 } from '../../../../selectors';
+import { addToAddressBook } from '../../../../store/actions';
 
 import {
   updateRecipient,
@@ -55,6 +56,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    addToAddressBook: (recipient, nickname, memo, addressType) =>
+      dispatch(addToAddressBook(recipient, nickname, memo, addressType)),
     updateRecipient: ({ address, nickname }) =>
       dispatch(updateRecipient({ address, nickname })),
     updateRecipientUserInput: (newInput) =>

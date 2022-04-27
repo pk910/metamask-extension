@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { sortBy } from 'lodash';
-import { isSmartContractAddress } from '../../../helpers/utils/transactions.util';
 import Button from '../../ui/button';
+import { EXTERNALLY_OWNED_ACCOUNTS } from '../../../../shared/constants/app';
 import RecipientGroup from './recipient-group/recipient-group.component';
 
 export default class ContactList extends PureComponent {
@@ -28,7 +28,7 @@ export default class ContactList extends PureComponent {
     const { isShowingAllRecent } = this.state;
     const nonContacts = this.props
       .searchForRecents()
-      .filter(({ address }) => isSmartContractAddress(address));
+      .filter(({ assetType }) => assetType === EXTERNALLY_OWNED_ACCOUNTS);
 
     const showLoadMore = !isShowingAllRecent && nonContacts.length > 2;
 
@@ -56,6 +56,7 @@ export default class ContactList extends PureComponent {
   renderAddressBook() {
     const unsortedContactsByLetter = this.props
       .searchForContacts()
+      .filter(({ assetType }) => assetType === EXTERNALLY_OWNED_ACCOUNTS)
       .reduce((obj, contact) => {
         const firstLetter = contact.name[0].toUpperCase();
         return {
@@ -64,9 +65,7 @@ export default class ContactList extends PureComponent {
         };
       }, {});
 
-    const letters = Object.keys(unsortedContactsByLetter)
-      .filter(({ address }) => isSmartContractAddress(address))
-      .sort();
+    const letters = Object.keys(unsortedContactsByLetter).sort();
 
     const sortedContactGroups = letters.map((letter) => {
       return [

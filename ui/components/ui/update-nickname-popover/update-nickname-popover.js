@@ -10,6 +10,11 @@ import { I18nContext } from '../../../contexts/i18n';
 
 import Identicon from '../identicon/identicon.component';
 import { getUseTokenDetection, getTokenList } from '../../../selectors';
+import { isSmartContractAddress } from '../../../helpers/utils/transactions.util';
+import {
+  CONTRACT_ACCOUNTS,
+  EXTERNALLY_OWNED_ACCOUNTS,
+} from '../../../../shared/constants/app';
 
 export default function UpdateNicknamePopover({
   nickname,
@@ -39,8 +44,11 @@ export default function UpdateNicknamePopover({
     onClose();
   };
 
-  const onSubmit = () => {
-    onAdd(address, nicknameInput, memoInput);
+  const onSubmit = async () => {
+    const addressType = (await isSmartContractAddress(address))
+      ? CONTRACT_ACCOUNTS
+      : EXTERNALLY_OWNED_ACCOUNTS;
+    onAdd(address, nicknameInput, memoInput, addressType);
     onClose();
   };
 
