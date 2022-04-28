@@ -62,6 +62,13 @@
     "message": "$1可以访问并使用此资产",
     "description": "$1 is the url of the site requesting ability to spend"
   },
+  "accessYourWalletWithSRP": {
+    "message": "使用账户助记词访问钱包"
+  },
+  "accessYourWalletWithSRPDescription": {
+    "message": "MetaMask无法恢复您的密码。我们将使用您的助记词来验证您的所有权、恢复您的钱包并设置新密码。首先，请输入创建钱包时获得的助记词。$1",
+    "description": "$1 is the words 'Learn More' from key 'learnMore', separated here so that it can be added as a link"
+  },
   "accessingYourCamera": {
     "message": "正在访问您的相机……"
   },
@@ -726,9 +733,6 @@
   },
   "customGasSubTitle": {
     "message": "提升费用可能会缩短处理时间，但不能保证。"
-  },
-  "customNetworks": {
-    "message": "自定义网络"
   },
   "customSpendLimit": {
     "message": "自定义消费限额"
@@ -2301,9 +2305,6 @@
   "onlyConnectTrust": {
     "message": "只连接您信任的网站。"
   },
-  "onlyInteractWith": {
-    "message": "仅与您信任的实体互动。"
-  },
   "openFullScreenForLedgerWebHid": {
     "message": "全屏打开 MetaMask 以通过 WebHID 连接您的 ledger。",
     "description": "Shown to the user on the confirm screen when they are viewing MetaMask in a popup window but need to connect their ledger via webhid."
@@ -2322,6 +2323,9 @@
   },
   "origin": {
     "message": "来源"
+  },
+  "padlock": {
+    "message": "挂锁"
   },
   "parameters": {
     "message": "参数"
@@ -3762,6 +3766,9 @@
   },
   "typePassword": {
     "message": "输入您的 MetaMask 密码"
+  },
+  "typeYourSRP": {
+    "message": "输入助记词"
   },
   "u2f": {
     "message": "U2F",
